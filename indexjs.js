@@ -43,7 +43,6 @@ const addToDo = () => {
 
 
     let editButton = document.createElement('button');
-    editButton.textContent = "Edit"
     editButton.classList.add('buttonForEdit')
     editButton.onclick = () => showEditInput(hiddenIpuntForEdit, hiddenChangeButton)
 
@@ -55,7 +54,6 @@ const addToDo = () => {
     hiddenChangeButton.classList.add('changeButtonLine');
     hiddenChangeButton.textContent = "Change";
     hiddenChangeButton.onclick = () => workWithInputChange(hiddenIpuntForEdit, hiddenChangeButton, crtSpan)
-
 
 
     element.appendChild(checkingButton)
@@ -85,19 +83,19 @@ function overlineCheck(e, span) {
 function showEditInput(input, button) {
     input.style.display = 'block';
     button.style.display = "block";
-    console.log(button);
+    // console.log(button);
 
 
 }
 function workWithInputChange(hidenInput, button, oldinputValue) {
     oldinputValue.innerHTML = hidenInput.value;
     button.onclick = () => varnish(hidenInput, button,oldinputValue);
-    console.log(button);
+    // console.log(button);
 
 }
 function varnish(a, b,c) {
-    console.log(a);
-    console.log(b);
+    // console.log(a);
+    // console.log(b);
     
     a.style.display = 'none';
     b.style.display = 'none';
