@@ -79,22 +79,23 @@ function overlineCheck(e, span) {
     }
 }
 function showEditInput(input, button) {
-    //  console.log(input);
-    //  console.log(button);
     input.style.display = 'block';
     button.style.display = "block";
+    console.log(button);
 
 
 }
 function workWithInputChange(hidenInput, button, oldinputValue) {
-    // console.log(hidenInput);
-    // console.log(button);
-    // console.log(oldinputValue);
     oldinputValue.innerHTML = hidenInput.value;
-    button.onclick = () => varnish(hidenInput, button);
+    button.onclick = () => varnish(hidenInput, button,oldinputValue);
+    console.log(button);
+
 }
-function varnish(a, b) {
+function varnish(a, b,c) {
+    console.log(a);
+    console.log(b);
+    
     a.style.display = 'none';
     b.style.display = 'none';
-
+    c.innerHTML=a.value;
 }
