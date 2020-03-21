@@ -2,6 +2,10 @@ let arr = []
 let containerToDo = document.getElementById('listCreate');
 let listButton = document.getElementById('button-cheaker');
 let linesOfTodolist = document.getElementsByClassName('todoItem');
+const dateElement=document.getElementById('date')
+let today=new Date();
+let options={weekday:'long',month:'short',day:'numeric'}
+dateElement.innerHTML=today.toLocaleDateString('en-GB',options)
 
 
 const addToDo = () => {
