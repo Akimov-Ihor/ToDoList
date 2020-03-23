@@ -2,10 +2,10 @@ let arr = []
 let containerToDo = document.getElementById('listCreate');
 let listButton = document.getElementById('button-cheaker');
 let linesOfTodolist = document.getElementsByClassName('todoItem');
-const dateElement=document.getElementById('date')
-let today=new Date();
-let options={weekday:'long',month:'short',day:'numeric'}
-dateElement.innerHTML=today.toLocaleDateString('en-GB',options)
+const dateElement = document.getElementById('date')
+let today = new Date();
+let options = { weekday: 'long', month: 'short', day: 'numeric' }
+dateElement.innerHTML = today.toLocaleDateString('en-GB', options)
 
 
 const addToDo = () => {
@@ -14,9 +14,14 @@ const addToDo = () => {
         done: false,
         id: new Date().getTime(),
     }
-
+    if (todoObj.value!==''){
     arr.push(todoObj);
+    render(arr);}
+    // let setCode=document.localStorage.setItem(arr,JSON.stringify([arr]));
 
+}
+function render (todoObj){
+    console.log(todoObj);
     let element = document.createElement("DIV");
     element.id = `todo-id-${todoObj.id}`
     element.classList.add("todoItem");
@@ -27,6 +32,7 @@ const addToDo = () => {
     element.appendChild(crtSpan);
     crtSpan.id = new Date().getTime();
     crtSpan.classList.add('SpanWithArrValue')
+    
 
 
     let checkingButton = document.createElement('input');
@@ -61,9 +67,8 @@ const addToDo = () => {
     element.appendChild(editButton);
     element.appendChild(hiddenIpuntForEdit);
     element.appendChild(hiddenChangeButton);
-
-
-
+    
+    console.log(setCode);
 }
 let deleteListOfToDo = (id) => {
     arr = arr.filter(elem => elem.id !== id);
@@ -83,21 +88,15 @@ function overlineCheck(e, span) {
 function showEditInput(input, button) {
     input.style.display = 'block';
     button.style.display = "block";
-    // console.log(button);
-
-
 }
 function workWithInputChange(hidenInput, button, oldinputValue) {
     oldinputValue.innerHTML = hidenInput.value;
-    button.onclick = () => varnish(hidenInput, button,oldinputValue);
-    // console.log(button);
-
+    button.onclick = () => varnish(hidenInput, button, oldinputValue);
 }
-function varnish(a, b,c) {
-    // console.log(a);
-    // console.log(b);
-    
-    a.style.display = 'none';
-    b.style.display = 'none';
-    c.innerHTML=a.value;
+function varnish(hiddenInput, button, oldInputValue) {
+
+    hiddenInput.style.display = 'none';
+    button.style.display = 'none';
+    oldInputValue.innerHTML = hiddenInput.value;
+
 }
