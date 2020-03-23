@@ -6,6 +6,13 @@ const dateElement = document.getElementById('date')
 let today = new Date();
 let options = { weekday: 'long', month: 'short', day: 'numeric' }
 dateElement.innerHTML = today.toLocaleDateString('en-GB', options)
+let inpuT=document.getElementById("in");
+inpuT.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("out").click();
+    }
+  });
 
 
 const addToDo = () => {
@@ -17,6 +24,7 @@ const addToDo = () => {
     if (todoObj.value!==''){
     arr.push(todoObj);
     render(arr);}
+    document.getElementById("in").value="";
     // let setCode=document.localStorage.setItem(arr,JSON.stringify([arr]));
 
 }
@@ -68,7 +76,6 @@ function render (todoObj){
     element.appendChild(hiddenIpuntForEdit);
     element.appendChild(hiddenChangeButton);
     
-    console.log(setCode);
 }
 let deleteListOfToDo = (id) => {
     arr = arr.filter(elem => elem.id !== id);
